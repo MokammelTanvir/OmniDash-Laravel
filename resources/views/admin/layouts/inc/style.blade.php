@@ -20,7 +20,7 @@
 {{-- <link rel="stylesheet" href="{{ asset('admin')}}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" /> --}}
 
 {{-- <link rel="stylesheet" href="{{ asset('admin')}}/assets/vendor/libs/apex-charts/apex-charts.css" /> --}}
-
+ <!-- Page -->
 @stack('admin_style')
 <!-- Page CSS -->
 
