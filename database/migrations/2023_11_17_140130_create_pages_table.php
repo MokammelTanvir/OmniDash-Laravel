@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('page_title');
             $table->string('page_slug');
-            $table->text('short_description')->nullable()->comment('Short description of the page');
-            $table->text('long_description')->nullable()->comment('Long description of the page');
-            $table->text('meta_title')->nullable()->comment('Meta title of the page');
-            $table->text('meta_keywords')->nullable()->comment('Meta keywords of the page');
-            $table->text('meta_description')->nullable()->comment('Meta description of the page');
-            $table->boolean('is_active')->default(false)->comment('Is page active or not');
+            $table->text('page_short')->nullable()->comment('short description');
+            $table->longText('page_long')->nullable()->comment('long description');
+            $table->text('meta_title')->nullable();
+            $table->text('meta_keywords')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('role_name', 100);
-            $table->string('role_slug')->unique();
-            $table->text('role_notes')->nullable()->comment('describe roles');
+            $table->string('role_name');
+            $table->string('role_slug');
+            $table->text('role_note')->nullable()->comment('describes the role');
             $table->boolean('is_deletable')->default(true);
             $table->timestamps();
             $table->softDeletes();
