@@ -18,9 +18,14 @@ class ModuleSeeder extends Seeder
     {
         $moduleArray = [
             'Admin Dashboard',
+            'Module Management',
+            'Permission Management',
             'Role Management',
             'User Management',
-            'Permission Management',
+            'Profile Management',
+            'Page Management',
+            'Backup Management',
+            'Setting Management',
         ];
 
         foreach ($moduleArray as $module) {

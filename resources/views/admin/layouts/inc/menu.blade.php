@@ -1,6 +1,7 @@
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+ <!-- Menu -->
+ <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="/" class="app-brand-link">
+        <a href="{{ route('home') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
                 <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -45,7 +46,7 @@
                     </g>
                 </svg>
             </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">OmniDash</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">ADash</span>
         </a>
 
         <a href="javascript:void(0);"
@@ -59,39 +60,171 @@
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
         <li class="menu-item active">
-            <a href="index.html" class="menu-link">
+            <a href="{{ route('home') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
 
-        <!-- Pages -->
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Pages</span>
+            <span class="menu-header-text">System Setting</span>
         </li>
+        @can('index-module')
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Account Settings</div>
+                <div data-i18n="Account Settings">Module Settings</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="pages-account-settings-account.html" class="menu-link">
-                        <div data-i18n="Account">Account</div>
+                    <a href="{{ route('module.index') }}" class="menu-link">
+                        <div data-i18n="Account">List</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="pages-account-settings-notifications.html" class="menu-link">
-                        <div data-i18n="Notifications">Notifications</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="pages-account-settings-connections.html" class="menu-link">
-                        <div data-i18n="Connections">Connections</div>
+                    <a href="{{ route('module.create') }}" class="menu-link">
+                        <div data-i18n="Notifications">Create</div>
                     </a>
                 </li>
             </ul>
         </li>
+        @endcan
+
+
+        @can('index-permission')
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <div data-i18n="Account Settings">Permission Settings</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('permission.index') }}" class="menu-link">
+                        <div data-i18n="Account">List</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('permission.create') }}" class="menu-link">
+                        <div data-i18n="Notifications">Create</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        @endcan
+
+
+        @can('index-role')
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-user-check"></i>
+                <div data-i18n="Account Settings">Role Settings</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('role.index') }}" class="menu-link">
+                        <div data-i18n="Account">List</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('role.create') }}" class="menu-link">
+                        <div data-i18n="Notifications">Create</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        @endcan
+
+        @can('index-user')
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-user-plus"></i>
+                <div data-i18n="Account Settings">User Settings</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('users.index') }}" class="menu-link">
+                        <div data-i18n="Account">List</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('users.create') }}" class="menu-link">
+                        <div data-i18n="Notifications">Create</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        @endcan
+
+        @can('index-page')
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-book-open"></i>
+                <div data-i18n="Account Settings">Page Builder</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('page.index') }}" class="menu-link">
+                        <div data-i18n="Account">List</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('page.create') }}" class="menu-link">
+                        <div data-i18n="Notifications">Create</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        @endcan
+
+        @can('index-backup')
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-data"></i>
+                <div data-i18n="Account Settings">Backup Management</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('backup.index') }}" class="menu-link">
+                        <div data-i18n="Account">List</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        @endcan
+
+        @can('general-setting-view')
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
+                <div data-i18n="Account Settings">System Setting Management</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('settings.general') }}" class="menu-link">
+                        <div data-i18n="Account">General Setting</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('settings.appearance') }}" class="menu-link">
+                        <div data-i18n="Account">Appearance Setting</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('settings.mail') }}" class="menu-link">
+                        <div data-i18n="Account">Mail Setting</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('settings.socialite') }}" class="menu-link">
+                        <div data-i18n="Account">Socialite Setting</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        @endcan
 
     </ul>
+
+
 </aside>
+<!-- / Menu -->

@@ -30,12 +30,23 @@ class RoleSeeder extends Seeder
 
 
 
-        //1. Create a user role
+        //1. Create a customer user role
         Role::updateOrCreate([
-            'role_name' => 'User',
-            'role_slug' => 'user',
-            'role_note' => 'user has limited permissions',
+            'role_name' => 'Customer',
+            'role_slug' => 'customer',
+            'role_note' => 'customer has limited permissions',
             'is_deletable' => true,
         ]);
+
+        //1 Create a manager role
+        // 2. and assign some permission on it
+        $managerPermissions = Permission::select('id')->where('permission_slug', 'like', 'view_%')->get();
+
+        Role::updateOrCreate([
+            'role_name' => 'Manager',
+            'role_slug' => 'manager',
+            'role_note' => 'manager has limited permissions',
+            'is_deletable' => true,
+        ])->permissions()->sync($managerPermissions->pluck('id'));
     }
 }

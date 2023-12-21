@@ -128,6 +128,25 @@
                 <span>Create an account</span>
               </a>
               @endif
+              <!-- Social Login -->
+              <div class="divider my-4">
+          <div class="divider-text">or</div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <a href="{{route('login.provider', ['provider' => 'facebook'])}}" class="btn btn-icon btn-label-facebook me-3">
+            <i class="tf-icons bx bxl-facebook"></i>
+          </a>
+
+          <a href="{{route('login.provider', ['provider' => 'google'])}}" class="btn btn-icon btn-label-google me-3">
+            <i class="tf-icons bx bxl-google"></i>
+          </a>
+
+          <a href="{{route('login.provider', ['provider' => 'github'])}}" class="btn btn-icon btn-label-github">
+            <i class="tf-icons bx bxl-github"></i>
+          </a>
+        </div>
+        <!-- /Social Login -->
 
             </p>
           </div>

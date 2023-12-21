@@ -4,16 +4,17 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Database\Seeders\RoleSeeder;
-use Database\Seeders\ModuleSeeder;
-use Database\Seeders\PermissionSeeder;
+use Database\Seeders\PageSeeder;
+use Database\Seeders\SettingSeeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
         // \App\Models\User::factory(10)->create();
 
@@ -27,6 +28,8 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            PageSeeder::class,
+            SettingSeeder::class,
         ]);
     }
 }

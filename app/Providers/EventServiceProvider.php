@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\LoginHistory;
+use App\Listeners\StoreUserLoginHistory;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -15,23 +17,33 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
+        Registered::class => [ /// Event
+            SendEmailVerificationNotification::class, // listener 1
         ],
+
+            LoginHistory::class => [
+            StoreUserLoginHistory::class
+        ]
+
+
     ];
 
     /**
      * Register any events for your application.
+     *
+     * @return void
      */
-    public function boot(): void
+    public function boot()
     {
         //
     }
 
     /**
      * Determine if events and listeners should be automatically discovered.
+     *
+     * @return bool
      */
-    public function shouldDiscoverEvents(): bool
+    public function shouldDiscoverEvents()
     {
         return false;
     }
